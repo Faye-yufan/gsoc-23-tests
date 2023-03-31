@@ -14,7 +14,7 @@ Rosling.bubbles <- function(
   data$group <- 1:n
   data$size <- runif(n * nmax, min = 2, max = 70)
   
-  bubble <- ggplot(data_df) +
+  bubble <- ggplot(data) +
     geom_point(aes(x = x, y = y, fill = bg, size = size, key = bg),
                showSelected="year",
                shape = 21, alpha = 0.5) + 
@@ -28,7 +28,7 @@ Rosling.bubbles <- function(
       xmin=year-1/2, xmax=year+1/2),
       clickSelects="year",
       alpha=1/2,
-      data=data_df)
+      data=data)
   (viz <- animint(bubble, select.year,
                  time=list(variable="year", ms=200)))
 }
